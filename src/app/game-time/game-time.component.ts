@@ -11,7 +11,7 @@ import {
 
 import {Observable} from 'rxjs/Rx';
 
-const WRITE_SECONDS = 30;
+const WRITE_SECONDS = 45;
 
 @Component({
   selector: 'app-game-time',
