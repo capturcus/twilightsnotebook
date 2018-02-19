@@ -7,8 +7,8 @@ import { Player } from './model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  state = 'addplayers';
-  players: Array<Player> = [];//[new Player("Twilight Sparkle", "#BD9E2D"), new Player("Applejack", "#9C5CA8")];
+  state = 'gametimestarted';
+  players: Array<Player> = [new Player("Twilight Sparkle", "#BD9E2D"), new Player("Applejack", "#9C5CA8")];
 
   startGame(event) {
     this.players = event;

@@ -17,6 +17,7 @@ const WRITE_SECONDS = 30;
   selector: 'app-game-time',
   templateUrl: './game-time.component.html',
   styleUrls: ['./game-time.component.css'],
+  host: { '(window:keydown)': 'keyDown($event)' },
 })
 export class GameTimeComponent implements OnInit {
 
@@ -30,6 +31,10 @@ export class GameTimeComponent implements OnInit {
   timer;
   subscription;
   progressBarValue: number = 100;
+
+  controlDown: boolean = false;
+
+  storyExported: boolean = false;
 
   constructor() {}
 
@@ -60,10 +65,14 @@ export class GameTimeComponent implements OnInit {
   }
 
   keyFunction(e) {
+    if (e.key === "Control") {
+      this.controlDown = false;
+      return;
+    }
     if (e.key === "Enter") {
-      if (this.state === "typing") {
+      if (this.state === "typing" && this.controlDown) {
         this.state = "waiting";
-        this.entries.push(new GameEntry(this.players[this.currentPlayer], this.textarea));
+        this.entries.push(new GameEntry(this.players[this.currentPlayer], this.textarea.replace("\n", " ")));
         this.nextPlayer();
         return;
       }
@@ -76,5 +85,15 @@ export class GameTimeComponent implements OnInit {
         return;
       }
     }
+  }
+
+  keyDown(e) {
+    if (e.key === "Control") {
+      this.controlDown = true;
+    }
+  }
+
+  export() {
+    this.storyExported = true;
   }
 }
