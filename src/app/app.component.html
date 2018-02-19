@@ -1,0 +1,5 @@
+<div class="container">
+<h1>Twilight's Notebook</h1>
+<app-add-players *ngIf="state==='addplayers'" (startGame)="startGame($event)"></app-add-players>
+<app-game-time *ngIf="state==='gametimestarted'" [players]="players"></app-game-time>
+</div>
