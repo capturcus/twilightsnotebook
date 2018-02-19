@@ -9,7 +9,6 @@ import {
   GameEntry
 } from '../model';
 
-import { NgProgress } from 'ngx-progressbar';
 import {Observable} from 'rxjs/Rx';
 
 const WRITE_SECONDS = 30;
