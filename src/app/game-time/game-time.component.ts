@@ -6,12 +6,10 @@ import {
 } from '@angular/core';
 import {
   Player,
-  GameEntry
+  GameEntry, Settings
 } from '../model';
 
 import {Observable} from 'rxjs/Rx';
-
-const WRITE_SECONDS = 45;
 
 @Component({
   selector: 'app-game-time',
@@ -21,6 +19,7 @@ const WRITE_SECONDS = 45;
 })
 export class GameTimeComponent implements OnInit {
 
+  @Input() settings: Settings;
   @Input() players: Array < Player > = [];
   entries: Array < GameEntry > = [];
   currentPlayer = 0;
@@ -46,7 +45,7 @@ export class GameTimeComponent implements OnInit {
   }
 
   tick(a) {
-    this.progressBarValue -= (100/WRITE_SECONDS);
+    this.progressBarValue -= (100 / this.settings.turnTime);
     if (this.progressBarValue < 0) {
       alert("time's up!");
       this.state = "waiting";

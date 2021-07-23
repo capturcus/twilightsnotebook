@@ -1,5 +1,6 @@
 <div class="container">
 <h1>Twilight's Notebook</h1>
+<app-settings (refreshSettings)="refreshSettings($event)"> </app-settings>
 <app-add-players *ngIf="state==='addplayers'" (startGame)="startGame($event)"></app-add-players>
-<app-game-time *ngIf="state==='gametimestarted'" [players]="players"></app-game-time>
+<app-game-time *ngIf="state==='gametimestarted'" [players]="players" [settings]="settings"></app-game-time>
 </div>

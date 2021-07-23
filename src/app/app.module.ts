@@ -8,13 +8,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AddPlayersComponent } from './add-players/add-players.component';
 import { GameTimeComponent } from './game-time/game-time.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPlayersComponent,
-    GameTimeComponent
+    GameTimeComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
