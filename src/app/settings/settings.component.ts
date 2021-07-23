@@ -26,4 +26,9 @@ export class SettingsComponent implements OnInit {
       this.turnTime
     ));
   }
+
+  resetGame() {
+    localStorage.clear();
+    location.reload();
+  }
 }

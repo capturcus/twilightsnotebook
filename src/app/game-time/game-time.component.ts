@@ -108,9 +108,4 @@ export class GameTimeComponent implements OnInit {
   export() {
     this.storyExported = true;
   }
-
-  resetGame() {
-    localStorage.clear();
-    location.reload();
-  }
 }

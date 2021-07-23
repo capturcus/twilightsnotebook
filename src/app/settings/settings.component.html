@@ -1,6 +1,7 @@
 <div style="display: flex; flex-direction: column;padding: 10px; border: 2px solid black;">
   <p>Hello and welcome to the settings tab.</p>
   <p>If you didn't like the defaults you can change them here you whiny bitch</p>
+  <button (click)="resetGame()">reset game</button>
   <div style="display: flex; flex-direction: column;">
     <label for="showTextBox">Show Text</label>
     <input id="showTextBox" type="checkbox" [(ngModel)]="showText" />
