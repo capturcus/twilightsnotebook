@@ -43,6 +43,11 @@ export class GameTimeComponent implements OnInit {
     window.setInterval(function() {
       elem.scrollTop = elem.scrollHeight;
     }, 100);
+    let story = localStorage.getItem("story");
+    if (story !== null) {
+      this.entries = JSON.parse(story) as Array<GameEntry>;
+      this.currentPlayer = Number(localStorage.getItem("currentPlayer"));
+    }
   }
 
   tick(a) {
@@ -62,6 +67,14 @@ export class GameTimeComponent implements OnInit {
     if (this.currentPlayer === this.players.length) {
       this.currentPlayer = 0;
     }
+    localStorage.setItem("currentPlayer", this.currentPlayer.toString());
+  }
+
+  submitEntry(player: Player, text: string) {
+    this.entries.push(new GameEntry(player, text));
+    let story = JSON.stringify(this.entries);
+    console.log(story);
+    localStorage.setItem("story", story);
   }
 
   keyFunction(e) {
@@ -72,7 +85,7 @@ export class GameTimeComponent implements OnInit {
     if (e.key === "Enter") {
       if (this.state === "typing" && this.controlDown) {
         this.state = "waiting";
-        this.entries.push(new GameEntry(this.players[this.currentPlayer], this.textarea.replace("\n", " ")));
+        this.submitEntry(this.players[this.currentPlayer], this.textarea.replace("\n", " "));
         this.nextPlayer();
         return;
       }
@@ -95,5 +108,10 @@ export class GameTimeComponent implements OnInit {
 
   export() {
     this.storyExported = true;
+  }
+
+  resetGame() {
+    localStorage.clear();
+    location.reload();
   }
 }
