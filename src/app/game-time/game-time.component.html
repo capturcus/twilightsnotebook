@@ -6,7 +6,7 @@
         <td><b>{{entry.player.name}}</b></td>
         <td style="display:inline-block; position:relative; width: 100%">
           <span>{{entry.text}}</span>
-          <div *ngIf="state==='waiting'" style="position:absolute; left:0; right:0; top:0; bottom:0; background: black;"></div>
+          <div *ngIf="!this.settings.showText && state==='waiting'" style="position:absolute; left:0; right:0; top:0; bottom:0; background: black;"></div>
         </td>
       </tr>
     </tbody>

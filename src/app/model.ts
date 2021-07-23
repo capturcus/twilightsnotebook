@@ -11,3 +11,10 @@ export class GameEntry {
         public text: string
     ) {}
 }
+
+export class Settings {
+    constructor(
+        public showText: boolean,
+        public turnTime: number
+    ) {}
+}

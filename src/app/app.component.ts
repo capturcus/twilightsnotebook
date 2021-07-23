@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Player } from './model';
+import {Player, Settings} from './model';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,11 @@ import { Player } from './model';
 export class AppComponent {
   state = 'addplayers';
   players: Array<Player> = []; // [new Player("Twilight Sparkle", "#BD9E2D"), new Player("Applejack", "#9C5CA8")];
+  settings: Settings = new Settings(
+    false,
+    45
+  );
+  showSettings = false;
 
   ngOnInit() {
     let players = localStorage.getItem("players");
@@ -23,5 +28,13 @@ export class AppComponent {
     let players = JSON.stringify(this.players);
     console.log(players);
     localStorage.setItem("players", players);
+  }
+
+  refreshSettings(event) {
+    this.settings = event;
+  }
+
+  settingsClick() {
+    this.showSettings = !this.showSettings;
   }
 }

@@ -1,0 +1,11 @@
+<div style="display: flex; flex-direction: column;padding: 10px; border: 2px solid black;">
+  <p>Hello and welcome to the settings tab.</p>
+  <p>If you didn't like the defaults you can change them here you whiny bitch</p>
+  <div style="display: flex; flex-direction: column;">
+    <label for="showTextBox">Show Text</label>
+    <input id="showTextBox" type="checkbox" [(ngModel)]="showText" />
+    <label for="turnTimeBox">Turn Time</label>
+    <input id="turnTimeBox" type="number" [(ngModel)]="turnTime" />
+    <button (click)="acceptConfig()"> Refresh Config !!! </button>
+  </div>
+</div>
