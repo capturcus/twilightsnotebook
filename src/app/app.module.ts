@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,7 +22,7 @@ import { SettingsComponent } from './settings/settings.component';
     BrowserModule,
     FormsModule,
     ColorPickerModule,
-    NgbModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
