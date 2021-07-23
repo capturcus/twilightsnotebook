@@ -8,7 +8,6 @@ import {Settings} from '../model';
 })
 export class SettingsComponent implements OnInit {
 
-  showSettings = false;
   turnTime = 45;
   showText = false;
 

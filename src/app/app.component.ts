@@ -13,6 +13,7 @@ export class AppComponent {
     false,
     45
   );
+  showSettings = false;
 
   startGame(event) {
     this.players = event;
@@ -21,5 +22,9 @@ export class AppComponent {
 
   refreshSettings(event) {
     this.settings = event;
+  }
+
+  settingsClick() {
+    this.showSettings = !this.showSettings;
   }
 }
