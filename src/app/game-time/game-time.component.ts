@@ -11,6 +11,17 @@ import {
 
 import {Observable} from 'rxjs/Rx';
 
+function download(data: string, filename: string): void {
+  const blob = new Blob([data], { type: 'text/plain' });
+  const url = window.URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', filename);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 @Component({
   selector: 'app-game-time',
   templateUrl: './game-time.component.html',
@@ -33,7 +44,8 @@ export class GameTimeComponent implements OnInit {
 
   controlDown: boolean = false;
 
-  storyExported: boolean = false;
+  exportWithNames = true;
+  storyExported = false;
 
   constructor() {}
 
@@ -107,5 +119,11 @@ export class GameTimeComponent implements OnInit {
 
   export() {
     this.storyExported = true;
+
+    const entries = this.exportWithNames
+        ? this.entries.map(e => e.player.name + ': ' + e.text)
+        : this.entries.map(e => e.text);
+    const story = entries.join('\n');
+    download(story, 'story.txt');
   }
 }
