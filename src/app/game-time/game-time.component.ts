@@ -25,8 +25,8 @@ export class GameTimeComponent implements OnInit {
   currentPlayer = 0;
   textarea: string;
   state: string = "waiting";
-  @ViewChild("textArea") textAreaElement;
-  @ViewChild("entryTable") entryTableElement;
+  @ViewChild('textArea', {static: true}) textAreaElement;
+  @ViewChild('entryTable', {static: true}) entryTableElement;
   timer;
   subscription;
   progressBarValue: number = 100;
