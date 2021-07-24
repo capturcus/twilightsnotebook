@@ -26,9 +26,4 @@
       <input id="exportWithNames" type="checkbox" [(ngModel)]="exportWithNames" />
       <button (click)="export()">EXPORT STORY</button>
   </div>
-  <div *ngIf="storyExported" style="display: flex; flex-direction: column">
-    <div *ngFor="let entry of entries" style="display: flex; flex-direction: column">
-      <span>{{entry.text}}</span>
-    </div>
-  </div>
 </div>

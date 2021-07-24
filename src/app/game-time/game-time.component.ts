@@ -45,7 +45,6 @@ export class GameTimeComponent implements OnInit {
   controlDown: boolean = false;
 
   exportWithNames = true;
-  storyExported = false;
 
   constructor() {}
 
@@ -118,8 +117,6 @@ export class GameTimeComponent implements OnInit {
   }
 
   export() {
-    this.storyExported = true;
-
     const entries = this.exportWithNames
         ? this.entries.map(e => e.player.name + ': ' + e.text)
         : this.entries.map(e => e.text);
